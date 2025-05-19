@@ -3,7 +3,6 @@ import VotesComponent from "./VotesComponent";
 import Avatar from "../Avatar";
 import { PostWithAuthorCommunityNames } from '@/lib/prisma/types'
 import TimeAgo from "../../../lib/clientComponents/TimeAgo";
-import { ChatBubbleBottomCenterTextIcon } from "@heroicons/react/24/outline";
 import PostFooter from "./PostFooter";
 import Link from "next/link";
 
