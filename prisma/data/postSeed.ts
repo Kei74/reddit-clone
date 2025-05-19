@@ -6,7 +6,7 @@ import Seeder from "./Seeder";
 class PostSeed extends Seeder {
   communities: { id: string }[];
   users: { id: string }[];
-  constructor(count: number = 200, communities:{ id: string }[], users: { id: string }[]) {
+  constructor(count: number = 50, communities:{ id: string }[], users: { id: string }[]) {
     super(count);
     this.count = count;
     this.communities = communities;
