@@ -30,7 +30,7 @@ function PostBox({ communityName = undefined }:Prop) {
 
 	const onSubmit = handleSubmit(async (formData) => {
 		console.log(formData);
-		const community = prisma.community.findUnique({
+		const community = await prisma.community.findUnique({
 			where: {
 				name: formData.community,
 			},

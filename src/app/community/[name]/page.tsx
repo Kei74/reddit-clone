@@ -49,7 +49,7 @@ export default async function CommunityPage({ params, }: { params: Promise<{ nam
 				</div>
 				<div className="mx-auto max-w-5xl pb-10">
 					{community.description}
-					<PostBox communityName={communityName} />
+					<PostBox communityName={communityName}/>
 					<PostsList communityName={communityName} />
 				</div>
 			</div>
