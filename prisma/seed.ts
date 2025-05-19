@@ -38,7 +38,7 @@ const main = async () => {
 		await prisma.user.deleteMany();
 		await prisma.community.deleteMany();
 
-		const communitySeed = new CommunitySeed(10);
+		const communitySeed = new CommunitySeed(5);
 		const communities = await prisma.community.createManyAndReturn({
 			data: communitySeed.data,
 			select: {
@@ -50,7 +50,7 @@ const main = async () => {
 		const userSeed = new UserSeed(5, communities);
 		console.log("Created User Seed");
 
-		const users: any[] = await ChunkedCreateAndReturnId(userSeed.data, prisma.user, 20);
+		const users: any[] = await ChunkedCreateAndReturnId(userSeed.data, prisma.user, 5);
 
 		console.log("Created Users");
 
@@ -58,7 +58,7 @@ const main = async () => {
 		const postSeed = new PostSeed(200, communities, users);
 		console.log("Created Post Seed");
 
-		const posts:any[] = await ChunkedCreateAndReturnId(postSeed.data, prisma.post, 20);
+		const posts:any[] = await ChunkedCreateAndReturnId(postSeed.data, prisma.post, 5);
 		
 		
 		console.log("Created Posts");
@@ -66,7 +66,7 @@ const main = async () => {
 		const commentSeed = new CommentSeed(200, posts, users);
 		console.log("Created Comment Seed");
 		
-		await ChunkedCreateAndReturnId(commentSeed.data, prisma.comment, 20);
+		await ChunkedCreateAndReturnId(commentSeed.data, prisma.comment, 5);
 
 		console.log("Created Comments");
 		
