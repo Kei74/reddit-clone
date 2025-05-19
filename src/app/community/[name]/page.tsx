@@ -24,6 +24,13 @@ export default async function CommunityPage({ params, }: { params: Promise<{ nam
 		},
 	})
 	*/
+	if (!community)
+		return (
+			<div>
+				Not Found
+			</div>
+		);
+
 	return (
 		// <PostsList communityName = {communityName}/>
 		<div className="">

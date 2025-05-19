@@ -2,28 +2,31 @@ import PostComponent from '@/app/_components/Post/PostComponent'
 import { prisma } from '@/lib/prisma/client';
 import React from 'react'
 
-async function PostPage({ params, }: { params: Promise<{ id: string }> }) {
-	const { id: postId } = await params;
+async function PostPage({ params }: { params: Promise<{ name: string,  id: string }> }) {
+	const { name: communityName, id: postId } = await params;
 	const post = await prisma.post.findUnique({
 		where: {
 			id: postId,
 		},
-		include: {
-			author: true,
-			community: true,
-		},
+    include: {
+      author: {
+        select: { name: true }
+      },
+      community: {
+        select: { name: true }
+      },
+    },
 	});
-	if (!post)
+	if (!post || post.community.name != communityName)
 		return (
 			<div>
-				Not Found
+				Not Found {communityName}
 			</div>
 		);
 	return (
 		//	<PostComponent post={post}/>
 
 		<div>
-			Post Page. Id: {postId}
 			<PostComponent post={post} />
 		</div>
 	);

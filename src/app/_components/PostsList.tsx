@@ -22,8 +22,12 @@ async function PostsList({ communityName = undefined }:Props) {
       },
     },
     include: {
-      author: true,
-      community: true
+      author: {
+        select: { name: true }
+      },
+      community: {
+        select: { name: true }
+      },
     },
   });
 

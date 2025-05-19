@@ -1,5 +1,16 @@
-import { Prisma } from '@/generated/prisma'
+import { Post, Prisma } from '@/generated/prisma'
 
-export type PostWithAuthorCommunity = Prisma.PostGetPayload<{
-  include: { community: true, author: true }
+export type PostWithAuthorCommunityNames = Post & Prisma.PostGetPayload<{
+  select: {
+    community: {
+      select: {
+        name: true
+      }
+    },
+    author: {
+      select: {
+        name: true
+      }
+    },
+  }
 }>

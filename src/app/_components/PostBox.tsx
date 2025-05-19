@@ -35,7 +35,7 @@ function PostBox({ communityName = undefined }:Prop) {
 				name: formData.community,
 			},
 			select: {
-				id: true,
+				name: true,
 			}
 		});
 
@@ -47,7 +47,7 @@ function PostBox({ communityName = undefined }:Prop) {
 					imageUrl: formData.imageURL,
 					community: {
 						connect: {
-							id: community.id,
+							name: community.name,
 						}
 					},
 					author: {

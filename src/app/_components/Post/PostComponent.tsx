@@ -1,20 +1,20 @@
 import React from "react"
 import VotesComponent from "./VotesComponent";
 import Avatar from "../Avatar";
-import { PostWithAuthorCommunity } from '@/lib/prisma/types'
+import { PostWithAuthorCommunityNames } from '@/lib/prisma/types'
 import TimeAgo from "../../../lib/clientComponents/TimeAgo";
 import { ChatBubbleBottomCenterTextIcon } from "@heroicons/react/24/outline";
 import PostFooter from "./PostFooter";
 import Link from "next/link";
 
 type Props = {
-  post: PostWithAuthorCommunity
+  post: PostWithAuthorCommunityNames
 };
 
 function PostComponent({ post }: Props) {
 
   return (
-    <div className="flex flex-col cursor-pointer border border-slate-400 
+    <div className="flex flex-col border border-slate-400 
     bg-gray-200 shadow-sm hover:bg-slate-200 hover:border hover:border-slate-600
     m-4 p-2 rounded-md">
       {/* Header */}
@@ -48,7 +48,7 @@ function PostComponent({ post }: Props) {
           </div>
           {/* Footer */}
           <div className="flex ">
-            <PostFooter />
+            <PostFooter postId={post.id}/>
 
           </div>
         </div>
