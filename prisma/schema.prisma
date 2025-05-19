@@ -72,7 +72,7 @@ model VerificationToken {
 model Community {
   id          String   @id @default(cuid())
   name        String   @unique
-  description String   @unique
+  description String
   image       String?
   users       User[]
   posts       Post[]

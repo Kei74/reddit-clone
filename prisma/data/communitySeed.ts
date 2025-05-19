@@ -14,7 +14,7 @@ class CommunitySeed extends Seeder {
   createData() {
     range(this.count).forEach(() => {
       const name = faker.food.dish();
-      const snakedName = changeCase.snakeCase(name)
+      const snakedName = changeCase.camelCase(name)
       //console.log(snakedName);
       this._data.push({
         name: snakedName,
